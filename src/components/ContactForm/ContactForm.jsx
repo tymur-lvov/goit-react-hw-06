@@ -21,7 +21,7 @@ const initialValues = {
   number: "",
 };
 
-function ContactForm({ onAdd, deleteContact }) {
+function ContactForm({ onAdd }) {
   const nameFieldId = useId();
   const numberFieldId = useId();
 
