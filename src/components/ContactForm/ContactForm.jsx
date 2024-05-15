@@ -1,11 +1,9 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { nanoid } from "nanoid";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
-
-import s from "./ContactForm.module.css";
 import { addContact } from "../../redux/contactsSlice";
 import { useDispatch } from "react-redux";
+import s from "./ContactForm.module.css";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
