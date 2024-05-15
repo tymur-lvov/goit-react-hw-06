@@ -1,8 +1,16 @@
 import { useId } from "react";
+import { useDispatch } from "react-redux";
+import { changeFilter } from "../../redux/filtersSlice";
 import s from "./SearchBox.module.css";
 
-function SearchBox({ filter, onFilter }) {
+function SearchBox({ filter }) {
   const searchFieldId = useId();
+
+  const dispatch = useDispatch();
+
+  const handleChange = (event) => {
+    dispatch(changeFilter(event.target.value));
+  };
 
   return (
     <>
@@ -14,7 +22,7 @@ function SearchBox({ filter, onFilter }) {
         id={searchFieldId}
         type="text"
         value={filter}
-        onChange={(event) => onFilter(event.target.value)}
+        onChange={handleChange}
       />
     </>
   );

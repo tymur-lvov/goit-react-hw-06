@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  //   contacts: {
-  //     items: [],
-  //   },
   filters: {
     name: "",
   },
@@ -13,15 +10,15 @@ export const filtersSlice = createSlice({
   name: "filters",
   initialState,
   selectors: {
-    selectNameFilter: (state) => state.contact,
+    selectNameFilter: (state) => state.filters,
   },
   reducers: {
     changeFilter: (state, { payload }) => {
-      console.log("changeFilter");
+      state.filters.name = payload;
     },
   },
 });
 
-export const selectNameFilter = filtersSlice.selectors;
+export const { selectNameFilter } = filtersSlice.selectors;
 export const { changeFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
